@@ -1,8 +1,11 @@
 from fastapi import FastAPI, Body, Query
 from pydantic import BaseModel
 from typing import List, Optional
+from mcp import router as mcp_router
 
 app = FastAPI()
+
+app.include_router(mcp_router)
 
 # --- Data Models ---
 class BudgetData(BaseModel):
